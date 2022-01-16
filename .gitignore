@@ -1,0 +1,6 @@
+/.nb-gradle/
+.gradle
+build
+logs
+RUNNING_PID
+private

@@ -9,14 +9,12 @@ import javafx.stage.Stage;
 
 public class HelloJPro extends Application {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage stage)
-    {
+    public void start(Stage stage) {
         Label label = new Label("Hello JPro!");
         label.setFont(new Font(50));
         label.setAlignment(Pos.CENTER);

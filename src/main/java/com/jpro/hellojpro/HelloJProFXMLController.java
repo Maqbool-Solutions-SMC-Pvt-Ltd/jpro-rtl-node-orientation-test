@@ -16,11 +16,8 @@ import javafx.util.Duration;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by TB on 25.02.16.
- */
-public class HelloJProFXMLController implements Initializable
-{
+public class HelloJProFXMLController implements Initializable {
+
     public Label platformLabel;
     @FXML
     protected StackPane root;
@@ -32,15 +29,12 @@ public class HelloJProFXMLController implements Initializable
 
     protected ParallelTransition pt;
 
-
     @Override
-    public void initialize(URL location, ResourceBundle resources)
-    {
+    public void initialize(URL location, ResourceBundle resources) {
         platformLabel.setText(String.format("Platform: %s", WebAPI.isBrowser() ? "Browser" : "Desktop"));
     }
 
-    protected void initLogoAnimation(Node logo)
-    {
+    protected void initLogoAnimation(Node logo) {
         ScaleTransition st = new ScaleTransition(Duration.millis(1000), logo);
         st.setByX(-0.5);
         st.setByY(-0.5);
@@ -56,16 +50,14 @@ public class HelloJProFXMLController implements Initializable
         pt = new ParallelTransition(st, ft);
         pt.play();
 
-        if(WebAPI.isBrowser()) {
+        if (WebAPI.isBrowser()) {
             jProApplication.getWebAPI().addInstanceCloseListener(() -> {
                 pt.stop();
             });
         }
     }
 
-
-    public void init(JProApplication jProApplication)
-    {
+    public void init(JProApplication jProApplication) {
         this.jProApplication = jProApplication;
         initLogoAnimation(this.logo);
     }
